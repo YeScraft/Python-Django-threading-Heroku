@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 't0#%6l@3)sjx2sl!my)dfht@ewb1)m#=aao&87u$da(mry0i1m'
+# SECRET_KEY = 'SECRET_KEY'
 
 # Для HEROKU
 import os
@@ -138,11 +138,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = 2525
 
-# EMAIL_HOST_USER = "e-2.9@mail.ru"
+# EMAIL_HOST_USER = "EMAIL_HOST_USER"
 # Для HEROKU
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 
-# EMAIL_HOST_PASSWORD = "skillfactory9562876"
+# EMAIL_HOST_PASSWORD = "EMAIL_HOST_PASSWORD"
 # Для HEROKU
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
