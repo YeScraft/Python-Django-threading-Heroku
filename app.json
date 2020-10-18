@@ -1,0 +1,6 @@
+{
+  "name": "Mail",
+  "description": "Mail sender",
+  "image": "heroku/python",
+  "keywords": ["python", "django" ]
+}

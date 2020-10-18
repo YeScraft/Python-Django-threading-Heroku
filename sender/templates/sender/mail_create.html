@@ -1,0 +1,29 @@
+{% extends 'sender/base_sender.html' %}
+
+{% block title %}
+    Create_mail
+{% endblock %}
+
+{% block content %}
+    <h4 class="mb-4">{{ message }}</h4>
+    {% if form %}
+        <form action="" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    {% if field.errors %}
+                        <div class="alert alert-danger">
+                            {{ field.errors }}
+                        </div>
+                    {% endif %}
+
+                    {{ field.label }}
+                    {{ field }}
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-primary">Send</button>
+
+        </form>
+    {% endif %}
+{% endblock %}

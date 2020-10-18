@@ -1,0 +1,80 @@
+{% extends 'sender/base_sender.html' %}
+
+{% block title %}
+    Mail status
+{% endblock %}
+
+{% block content %}
+    {% if last_ten or in_process or sended %}
+        {% if last_ten %}
+            <h4 class="mb-4">Последние {{last_ten|length}} писем на отправку:</h4>
+            {% for mail in last_ten %}
+                <div class="card mb-4" style="width: 18rem;">
+                  <div class="card-header">
+                      ID: {{ mail.id }}
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Адресат: {{ mail.recipient }}</li>
+                    <li class="list-group-item">Тема: {{ mail.subject }}</li>
+                    <li class="list-group-item">Будет отправлено: {{ mail.send_date|date:"Y-M-d H:i:s" }}</li>
+                  </ul>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if in_process %}
+            <h4 class="mb-4">Письма на отправку: {{in_process|length}} шт.</h4>
+            {% for mail in in_process %}
+                <div class="card mb-4" style="width: 18rem;">
+                  <div class="card-header">
+                      ID: {{ mail.id }}
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Адресат: {{ mail.recipient }}</li>
+                    <li class="list-group-item">Тема: {{ mail.subject }}</li>
+                    <li class="list-group-item">Будет отправлено: {{ mail.send_date|date:"Y-M-d H:i:s" }}</li>
+                  </ul>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if sended %}
+            <h4 class="mb-4">Отправленные: {{sended|length}} шт.</h4>
+            {% for mail in sended %}
+                <div class="card mb-4" style="width: 18rem;">
+                  <div class="card-header">
+                      ID: {{ mail.id }}
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Адресат: {{ mail.recipient }}</li>
+                    <li class="list-group-item">Тема: {{ mail.subject }}</li>
+                    <li class="list-group-item">Отправлено: {{ mail.send_date|date:"Y-M-d H:i:s" }}</li>
+                    <li class="list-group-item">Статус: {{ mail.status }}</li>
+                  </ul>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if not_sended %}
+            <h4 class="mb-4">Неотправленные: {{not_sended|length}} шт.</h4>
+            {% for mail in not_sended %}
+                <div class="card mb-4" style="width: 18rem;">
+                  <div class="card-header">
+                      ID: {{ mail.id }}
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Адресат: {{ mail.recipient }}</li>
+                    <li class="list-group-item">Тема: {{ mail.subject }}</li>
+                    <li class="list-group-item">Отправлено: {{ mail.send_date|date:"Y-M-d H:i:s" }}</li>
+                    <li class="list-group-item">Статус: {{ mail.status }}</li>
+                  </ul>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    {% else %}
+        <h4 class="mb-4">Писем нет.</h4>
+
+    {% endif %}
+
+{% endblock %}
