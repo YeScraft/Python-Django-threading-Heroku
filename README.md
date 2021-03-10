@@ -9,7 +9,7 @@
 7. Создан сюперюзер: с логином pws_admin и паролем sf_password, через него можно редактировать список писем;
 8. Запустить сервер: python manage.py runserver.
 
-https://fierce-cliffs-06960.herokuapp.com/
+Heroku - https://fierce-cliffs-06960.herokuapp.com/
 
 Задание:
 
